@@ -1,31 +1,11 @@
-// 0. Install fingerpose npm install fingerpose
-// 1. Add Use State
-// 2. Import emojis and finger pose import * as fp from "fingerpose";
-// 3. Setup hook and emoji object
-// 4. Update detect function for gesture handling
-// 5. Add emoji display to the screen
-
-//6. Add custom gestures
-
-///////// NEW STUFF ADDED USE STATE
 import React, { useRef, useState, useEffect } from "react";
-///////// NEW STUFF ADDED USE STATE
-
-// import logo from './logo.svg';
 import * as tf from "@tensorflow/tfjs";
 import * as handpose from "@tensorflow-models/handpose";
 import Webcam from "react-webcam";
 import "./App.css";
 import { drawHand } from "./utilities";
 import { drawKeywords } from "./keywords";
-// import { increseIndex } from "./keywords";
-
-
-///////// NEW STUFF IMPORTS
 import * as fp from "fingerpose";
-// import victory from "./victory.png";
-// import thumbs_up from "./thumbs_up.png";
-///////// NEW STUFF IMPORTS
 
 class Count {
   constructor(value){
@@ -39,12 +19,6 @@ export const c = new Count(0);
 function App() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
-
-  ///////// NEW STUFF ADDED STATE HOOK
-  // const [emoji, setEmoji] = useState(null);
-  // const images = { thumbs_up: thumbs_up, victory: victory };
-  ///////// NEW STUFF ADDED STATE HOOK
-
 
   //Custom Gestures!!
   //Index Right
@@ -99,6 +73,7 @@ function App() {
     // PalmDownGesture.addDirection(finger, fp.FingerDirection.DiagonalDownRight, 0.9);  
   }
 
+
   const runHandpose = async () => {
     const net = await handpose.load();
     console.log("Handpose model loaded.");
@@ -111,6 +86,8 @@ function App() {
   let handgesture_1 = "PalmUp";
   let decision = 0;
   let count = 0;
+
+
   const detect = async (net) => {
     // Check data is available
     if (
@@ -135,14 +112,9 @@ function App() {
       const hand = await net.estimateHands(video);
       // console.log(hand);
 
-      ///////// NEW STUFF ADDED GESTURE HANDLING
 
       if (hand.length > 0) {
         const GE = new fp.GestureEstimator([
-          // fp.Gestures.VictoryGesture,
-          // fp.Gestures.ThumbsUpGesture,
-          // IndexUpGesture,
-          // IndexDownGesture,
           PalmUpGesture,
           PalmDownGesture,
           IndexRightGesture,
@@ -159,8 +131,6 @@ function App() {
             Math.max.apply(null, confidence)
           );
           // console.log(gesture.gestures[maxConfidence].name);
-          // setEmoji(gesture.gestures[maxConfidence].name);
-          // console.log(emoji);
 
           if(gesture.gestures[maxConfidence].name != handgesture_1){
             if(gesture.gestures[maxConfidence].name == "PalmUp"){
@@ -178,27 +148,12 @@ function App() {
         }
       }
 
-      
-  
 
-      ///////// NEW STUFF ADDED GESTURE HANDLING
 
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
       drawHand(hand, ctx);
       drawKeywords(ctx, c.value, decision);
-
-
-     
-
-      // const { createCanvas, loadImage } = require('canvas')
-      // const canvas = createCanvas(200, 200)
-      // const ctx = canvas.getContext('2d')
-
-      // Write "Awesome!"
-      // ctx.font = '30px Impact'
-      // ctx.rotate(0.1)
-      // ctx.fillText('Awesome!', 50, 100)
     }
 
     
@@ -258,26 +213,6 @@ function App() {
             height: 700,
           }}
         />
-        {/* NEW STUFF
-        {emoji !== null ? (
-          <img
-            src={images[emoji]}
-            style={{
-              position: "absolute",
-              marginLeft: "auto",
-              marginRight: "auto",
-              left: 400,
-              bottom: 500,
-              right: 0,
-              textAlign: "center",
-              height: 100,
-            }}
-          />
-        ) : (
-          ""
-        )} */}
-
-        {/* NEW STUFF */}
       </header>
     </div>
   );
