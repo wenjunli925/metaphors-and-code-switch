@@ -3,9 +3,12 @@ import * as tf from "@tensorflow/tfjs";
 import * as handpose from "@tensorflow-models/handpose";
 import Webcam from "react-webcam";
 import "./App.css";
+import * as fp from "fingerpose";
+
 import { drawHand } from "./utilities";
 import { drawKeywords } from "./keywords";
-import * as fp from "fingerpose";
+import { playSound, changeVolume } from "./audio";
+
 
 class Count {
   constructor(value){
@@ -84,8 +87,8 @@ function App() {
   };
   
   let handgesture_1 = "PalmUp";
-  let decision = 0;
-  let count = 0;
+  let decision = 1;
+  let count = 1;
 
 
   const detect = async (net) => {
@@ -154,13 +157,16 @@ function App() {
       const ctx = canvasRef.current.getContext("2d");
       drawHand(hand, ctx);
       drawKeywords(ctx, c.value, decision);
+      changeVolume (decision);
+
+      
     }
 
     
   };
 
   
-
+  
 
   useEffect(()=>{runHandpose()},[]);
   
@@ -171,13 +177,113 @@ function App() {
         count = 0;
       }
       c.value = count;
-      console.log(count);
-      console.log(c.value);
+      // console.log(count);
+      // console.log(c.value);
     }, 3000);
     return () => clearTimeout(interval);
   }, []);
 
+  playSound();
 
+////Audio Part////
+  // const audioContext = new AudioContext();
+
+  // const buffer = audioContext.createBuffer(
+  //     1,
+  //     48000,
+  //     48000
+  // )
+
+  // const channelData = buffer.getChannelData(0);
+
+  // for(let i = 0; i < buffer.length; i++) {
+  //   channelData[i] = Math.random() * 2 - 1;
+  // }
+
+  
+  //  const primaryGainControl = audioContext.createGain();
+  //  primaryGainControl.gain.setValueAtTime(0.05, 0);  
+  //  primaryGainControl.connect(audioContext.destination);
+  
+ 
+  //  audioContext.resume();
+   
+  //  const button = document.createElement('button')
+  //  button.innerText = "White Noise";
+  //  button.addEventListener("click", () => {
+  //   const whiteNoiseSource = audioContext.createBufferSource();
+  //   whiteNoiseSource.buffer = buffer;
+  //   whiteNoiseSource.connect(primaryGainControl);
+  //   whiteNoiseSource.start();
+
+  //  })
+  //  document.body.appendChild(button);
+
+  //  const snareFilter = audioContext.createBiquadFilter();
+  //  snareFilter.type = "highpass";
+  //  snareFilter.frequency.value = 1500;
+  //  snareFilter.connect(primaryGainControl);
+
+  //  const snareButton = document.createElement('button')
+  //  snareButton.innerText = "Snare";
+  //  snareButton.addEventListener("click", () => {
+  //   const whiteNoiseSource = audioContext.createBufferSource();
+  //   whiteNoiseSource.buffer = buffer;
+  //   whiteNoiseSource.connect(snareFilter);
+    
+
+  //   const whiteNoiseGain = audioContext.createGain();
+  //   whiteNoiseGain.gain.setValueAtTime(1, audioContext.currentTime);
+  //   whiteNoiseGain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+  //   whiteNoiseSource.connect(whiteNoiseGain);
+  //   whiteNoiseGain.connect(snareFilter);
+
+  //   whiteNoiseSource.start();
+  //   whiteNoiseSource.stop(audioContext.currentTime + 0.2);
+
+  //   const snareOscillator = audioContext.createOscillator();
+  //   snareOscillator.type = "triangle";
+  //   snareOscillator.frequency.setValueAtTime(250, audioContext.currentTime);
+
+  //   const oscillatorGain = audioContext.createGain();
+  //   oscillatorGain.gain.setValueAtTime(1, audioContext.currentTime);
+  //   oscillatorGain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime);
+  //   snareOscillator.connect(oscillatorGain);
+  //   oscillatorGain.connect(primaryGainControl);
+  //   snareOscillator.start();
+  //   snareOscillator.stop(audioContext.currentTime + 0.2);
+  //  })
+  //  document.body.appendChild(snareButton);
+
+
+
+  //  const kickButton = document.createElement("button");
+  //  kickButton.innerText = "Kick";
+  //  kickButton.addEventListener("click", () => {
+  //    const kickOscillator = audioContext.createOscillator();
+
+  //    kickOscillator.frequency.setValueAtTime(266.1, 0);
+  //    kickOscillator.type = "triangle";
+  //    kickOscillator.frequency.exponentialRampToValueAtTime(
+  //      0.001,
+  //      audioContext.currentTime + 0.5
+  //     );
+
+  //     const kickGain = audioContext.createGain();
+  //     kickGain.gain.setValueAtTime(1,0);
+  //     kickGain.gain.exponentialRampToValueAtTime(
+  //       0.001,
+  //       audioContext.currentTime + 0.5
+  //     );
+
+  //    kickOscillator.connect(primaryGainControl);
+  //   //  kickGain.connect(primaryGainControl);
+  //    kickOscillator.start();
+  //    kickOscillator.stop(audioContext.currentTime + 0.5);
+  //  })
+  //  document.body.appendChild(kickButton);
+
+  /////////
 
 
   return (

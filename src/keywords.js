@@ -37,7 +37,7 @@ class Word {
 const Modules = [];
 for (let k = 0; k < 25; k++){
     Modules[k] = new Word (keywords[k], 2, "blue");
-    console.log(Modules[k]);
+    // console.log(Modules[k]);
 }
 
 
