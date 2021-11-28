@@ -83,7 +83,7 @@ function App() {
     //  Loop and detect hands
     setInterval(() => {
       detect(net);
-    }, 5);
+    }, 10);
   };
   
   let handgesture_1 = "PalmUp";
@@ -108,8 +108,8 @@ function App() {
       webcamRef.current.video.height = videoHeight;
 
       // Set canvas height and width
-      canvasRef.current.width = 1200;
-      canvasRef.current.height = 700;
+      canvasRef.current.width = 1600;
+      canvasRef.current.height = 900;
 
       // Make Detections
       const hand = await net.estimateHands(video);
@@ -298,8 +298,8 @@ function App() {
 
             // textAlign: "center",
             zindex: 9,
-            width: 360,
-            height: 270,
+            width: 180,
+            height: 135,
           }}
         />
 
