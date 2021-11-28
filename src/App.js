@@ -16,7 +16,7 @@ class Count {
   }
 }
 
-export const c = new Count(0);
+const c = new Count(0);
 
 
 function App() {
@@ -83,7 +83,7 @@ function App() {
     //  Loop and detect hands
     setInterval(() => {
       detect(net);
-    }, 10);
+    }, 5);
   };
   
   let handgesture_1 = "PalmUp";
@@ -157,9 +157,9 @@ function App() {
       const ctx = canvasRef.current.getContext("2d");
       drawHand(hand, ctx);
       drawKeywords(ctx, c.value, decision);
-      changeVolume (decision);
 
-      
+      //Audio Control
+      changeVolume (decision);
     }
 
     
@@ -177,8 +177,6 @@ function App() {
         count = 0;
       }
       c.value = count;
-      // console.log(count);
-      // console.log(c.value);
     }, 3000);
     return () => clearTimeout(interval);
   }, []);
