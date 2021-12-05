@@ -9,27 +9,27 @@ const fingerJoints = {
 
 // Infinity Gauntlet Style
 const style = {
-  0: { color: "Azure", size: 15 },
-  1: { color: "Azure", size: 6 },
-  2: { color: "Azure", size: 10 },
-  3: { color: "Azure", size: 6 },
-  4: { color: "Azure", size: 6 },
-  5: { color: "Azure", size: 10 },
-  6: { color: "Azure", size: 6 },
-  7: { color: "Azure", size: 6 },
-  8: { color: "Azure", size: 6 },
-  9: { color: "Azure", size: 10 },
-  10: { color: "Azure", size: 6 },
-  11: { color: "Azure", size: 6 },
-  12: { color: "Azure", size: 6 },
-  13: { color: "Azure", size: 10 },
-  14: { color: "Azure", size: 6 },
-  15: { color: "Azure", size: 6 },
-  16: { color: "Azure", size: 6 },
-  17: { color: "Azure", size: 10 },
-  18: { color: "Azure", size: 6 },
-  19: { color: "Azure", size: 6 },
-  20: { color: "Azure", size: 6 },
+  0: { color: "#BE494D", size: 15 },
+  1: { color: "#BE494D", size: 6 },
+  2: { color: "#BE494D", size: 10 },
+  3: { color: "#BE494D", size: 6 },
+  4: { color: "#BE494D", size: 6 },
+  5: { color: "#BE494D", size: 10 },
+  6: { color: "#BE494D", size: 6 },
+  7: { color: "#BE494D", size: 6 },
+  8: { color: "#BE494D", size: 6 },
+  9: { color: "#BE494D", size: 10 },
+  10: { color: "#BE494D", size: 6 },
+  11: { color: "#BE494D", size: 6 },
+  12: { color: "#BE494D", size: 6 },
+  13: { color: "#BE494D", size: 10 },
+  14: { color: "#BE494D", size: 6 },
+  15: { color: "#BE494D", size: 6 },
+  16: { color: "#BE494D", size: 6 },
+  17: { color: "#BE494D", size: 10 },
+  18: { color: "#BE494D", size: 6 },
+  19: { color: "#BE494D", size: 6 },
+  20: { color: "#BE494D", size: 6 },
 };
 
 // Drawing function
@@ -60,8 +60,8 @@ export const drawHand = (predictions, ctx) => {
             landmarks[secondJointIndex][0],
             landmarks[secondJointIndex][1]
           );
-          ctx.strokeStyle = "SaddleBrown";
-          ctx.lineWidth = 6;
+          ctx.strokeStyle = "#D2D1D3";
+          ctx.lineWidth = 4;
           ctx.stroke();
         }
       }
@@ -72,14 +72,15 @@ export const drawHand = (predictions, ctx) => {
         const x = landmarks[i][0];
         // Get y point
         const y = landmarks[i][1];
-        // Start drawing
-        ctx.beginPath();
-        ctx.arc(x, y, style[i]["size"], 0, 3 * Math.PI);
 
         // Set line color
         ctx.fillStyle = style[i]["color"];
-        ctx.fillStyle = "SaddleBrown";
+        ctx.fillStyle = "##BE494D";
         ctx.fill();
+
+        // Start drawing
+        ctx.beginPath();
+        ctx.arc(x, y, style[i]["size"], 0, 3 * Math.PI);
       }
     });
   }

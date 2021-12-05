@@ -11,17 +11,16 @@ export const playSound = () => {
 
 export const changeVolume = (decision) => {
     if(decision){
-        if(audio.volume < 0.99){
-            audio.volume += 0.005;
+        if(audio.volume > 0.001){
+            audio.volume -= 0.001;
         }
         
     } else {
-        if(audio.volume > 0.01){
-            audio.volume -= 0.005;
+        if(audio.volume < 0.999){
+            audio.volume += 0.001;
         }
         
     }
 
-    console.log(decision);
     console.log(audio.volume);
 }
