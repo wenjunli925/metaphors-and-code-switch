@@ -27,6 +27,6 @@ The final output of this system is the changes in its audio.
 
 Nicholas Renotte: [Real Time AI GESTURE RECOGNITION with Tensorflow.JS + React.JS + Fingerpose](https://www.youtube.com/watch?v=9MTiQMxTXPE&t=418s)
 
-Andreas Schallwig [fingerpose](https://openbase.com/js/fingerpose/documentation)
+Andreas Schallwig: [fingerpose](https://openbase.com/js/fingerpose/documentation)
 
 
