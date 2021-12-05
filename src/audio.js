@@ -1,4 +1,4 @@
-import sound from './calm_breathing.wav';
+import sound from './man_breathing.wav';
 const audio = new Audio(sound);
 
 export const playSound = () => {   
@@ -11,13 +11,13 @@ export const playSound = () => {
 
 export const changeVolume = (decision) => {
     if(decision){
-        if(audio.volume > 0.001){
-            audio.volume -= 0.001;
+        if(audio.volume > 0.002){
+            audio.volume -= 0.002;
         }
         
     } else {
-        if(audio.volume < 0.999){
-            audio.volume += 0.001;
+        if(audio.volume < 0.998){
+            audio.volume += 0.002;
         }
         
     }
