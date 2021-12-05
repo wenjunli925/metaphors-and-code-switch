@@ -9,5 +9,9 @@ Also inspired by various orientational metaphors rooted in our languages - so ma
 The final output of this system is the changes in its audio.
 
 ## Sketch
-### The network behind the screen
+### Behind the Screen Network
 ![sketch_network](/images/sketch.jpeg)
+
+## Work in Progress Documentation
+![image_1](/images/image_1.png)
+![image_2](/images/image_2.png)
