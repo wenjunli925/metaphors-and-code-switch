@@ -18,6 +18,10 @@ The final output of this system is the changes in its audio.
 ![image_2](/images/image_2.png)
 
 ## Credits
-Audio is from freesound:
+Audio from freesound:
 
 "Breathing" by viznoman ( https://freesound.org/people/viznoman/ ) licensed under CCBYNC 3.0
+
+Tutorials I followed:
+
+[Real Time AI GESTURE RECOGNITION with Tensorflow.JS + React.JS + Fingerpose](https://www.youtube.com/watch?v=9MTiQMxTXPE&t=418s)
