@@ -10,9 +10,9 @@ The final output of this system is the changes in its audio.
 
 ## Sketch
 ### Behind the Screen Network
-![sketch_network](/assets/images/sketch.jpeg)
+![sketch_network](/images/sketch.jpeg)
 
 ## Documentation
 ### Work in Progress
-![image_1](/assets/images/image_1.png)
-![image_2](/assets/images/image_2.png)
+![image_1](/images/image_1.png)
+![image_2](/images/image_2.png)
