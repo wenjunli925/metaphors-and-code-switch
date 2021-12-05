@@ -23,12 +23,10 @@ Audio from freesound:
 "Breathing" by viznoman ( https://freesound.org/people/viznoman/ ) licensed under CCBYNC 3.0
 
 
-Tutorial:
+Tutorial & Documentation:
 
-[Real Time AI GESTURE RECOGNITION with Tensorflow.JS + React.JS + Fingerpose](https://www.youtube.com/watch?v=9MTiQMxTXPE&t=418s) by Nicholas Renotte.
+Nicholas Renotte: [Real Time AI GESTURE RECOGNITION with Tensorflow.JS + React.JS + Fingerpose](https://www.youtube.com/watch?v=9MTiQMxTXPE&t=418s)
 
-Documentation:
-
-[fingerpose](https://openbase.com/js/fingerpose/documentation) by Andreas Schallwig
+Andreas Schallwig [fingerpose](https://openbase.com/js/fingerpose/documentation)
 
 
