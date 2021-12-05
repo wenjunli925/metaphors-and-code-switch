@@ -16,3 +16,7 @@ The final output of this system is the changes in its audio.
 ### Work in Progress
 ![image_1](/images/image_1.png)
 ![image_2](/images/image_2.png)
+
+## Credits
+Sound from freesound:
+"Breathing" by viznoman ( https://freesound.org/people/viznoman/ ) licensed under CCBYNC 3.0
