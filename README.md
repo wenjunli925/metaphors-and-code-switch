@@ -1,4 +1,4 @@
-# Metaphors-and-Code-Switch
+# Metaphors & Switch
 ## Description
 This work is part of my practice exploring the invisible network that facilitates communication between humans and machines.
 
